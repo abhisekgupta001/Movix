@@ -17,12 +17,19 @@ function App() {
   const { url } = useSelector((state) => state.home);
 
   useEffect(() => {
-    apiTesting();
+    fetchAPIConfig();
   }, []);
 
-  const apiTesting = () => {
-    fetchDataFromApi("/movie/popular").then((res) => {
-      dispatch(getApiConfiguration(res));
+  const fetchAPIConfig = () => {
+    fetchDataFromApi("/configuration").then((res) => {
+      console.log(res);
+
+      const url = {
+        backdrop: res?.images?.secure_base_url + "original",
+        poster: res?.images?.secure_base_url + "original",
+        profile: res?.images?.secure_base_url + "original",
+      };
+      dispatch(getApiConfiguration(url));
     });
   };
 
@@ -34,7 +41,7 @@ function App() {
         <Route path="/:mediaType/:id" element={<Details />} />
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType" element={<Explore />} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
