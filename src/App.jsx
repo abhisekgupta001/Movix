@@ -19,12 +19,12 @@ function App() {
 
   useEffect(() => {
     fetchAPIConfig();
+    genresCall();
   }, []);
 
   const fetchAPIConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
-      console.log(res);
-
+      
       const url = {
         backdrop: res?.images?.secure_base_url + "original",
         poster: res?.images?.secure_base_url + "original",
@@ -33,6 +33,23 @@ function App() {
       dispatch(getApiConfiguration(url));
     });
   };
+
+  const genresCall = async () =>{
+      let promises = []
+      let endpoints = ["tv", "movie"]
+      let allGenres = {}
+
+      endpoints.forEach((endpoint)=>{
+        promises.push(fetchDataFromApi(`/genre/${endpoint}/list`))
+      })
+
+      const data = await Promise.all(promises);
+      data.map(({genres})=>{
+        return genres.map((item) => (allGenres[item.id] = item))
+      })
+
+      dispatch(getGenres(allGenres));
+  }
 
   return (
     <StrictMode>

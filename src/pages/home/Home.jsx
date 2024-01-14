@@ -1,12 +1,17 @@
 import React from "react";
 import "./style.scss";
 import HeroBanner from "./heroBannner/HeroBanner";
+import Trending from "./trending/Trending";
+import Popular from "./popular/Popular";
+import TopRated from "./topRated/TopRated";
 
 const Home = () => {
   return (
     <div className="homePage">
       <HeroBanner />
-      <div style={{height: "100vh"}}></div>
+      <Trending />
+      <Popular />
+      <TopRated />
     </div>
   );
 };
