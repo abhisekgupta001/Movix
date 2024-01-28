@@ -1,8 +1,14 @@
-# React + Vite
+## MOVIX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Movix is a react app that leverage the TMDB API and display details of movies and TV Shows. It shows the trending movies, the top rated movies, their casting and crews, their IMDB rating. You can also see the trailers or other videos associated with the movie or tvshow.
 
-Currently, two official plugins are available:
+- STACK
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  - React
+  - Redux
+  - SCSS
+  - TMDB API
+
+- Live Link:
+
+- Github Repo: https://github.com/abhisekgupta001/Movix

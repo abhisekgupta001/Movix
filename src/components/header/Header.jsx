@@ -74,7 +74,7 @@ const Header = () => {
     }
     else if(type === "tvshow")
     {
-      navigate("/explore/tvshow");
+      navigate("/explore/tv");
     }
     else if(type === "home")
     {
